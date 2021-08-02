@@ -20,6 +20,9 @@ repositories {
 
 ext {
     jaxbVersion = '2.3.0'
+    mapstructVersion = "1.4.2.Final"
+    lombokVersion = "1.18.20"
+    lombokMapstructBindingVersion = "0.2.0"
 }
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
@@ -28,8 +31,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     runtimeOnly 'com.h2database:h2'
     compileOnly 'org.projectlombok:lombok'
+    compileOnly "org.mapstruct:mapstruct:${mapstructVersion}"
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}", "org.projectlombok:lombok:${lombokVersion}", "org.projectlombok:lombok-mapstruct-binding:${lombokMapstructBindingVersion}"
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 //    implementation "javax.xml.bind:jaxb-api:$jaxbVersion"
 //    implementation "com.sun.xml.bind:jaxb-core:$jaxbVersion"
